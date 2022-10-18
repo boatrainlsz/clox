@@ -7,6 +7,8 @@ include_directories(.)
 
 add_executable(clox
         chunk.c
+        value.h
+        value.c
         chunk.h
         common.h
         main.c
