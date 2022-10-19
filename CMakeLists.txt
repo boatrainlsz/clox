@@ -7,6 +7,7 @@ include_directories(.)
 
 add_executable(clox
         chunk.c
+        vm.h
         value.h
         value.c
         chunk.h
@@ -15,4 +16,4 @@ add_executable(clox
         memory.c
         debug.c
         debug.h
-        memory.h)
+        memory.h vm.c)
