@@ -55,14 +55,12 @@ bool valuesEqual(Value a, Value b) {
             return true;
         case VAL_NUMBER:
             return AS_NUMBER(a) == AS_NUMBER(b);
-        case VAL_OBJ: {
-            ObjString *aString = AS_STRING(a);
-            ObjString *bString = AS_STRING(b);
-            return aString->length == bString->length &&
-                   memcmp(aString->chars, bString->chars,
-                          aString->length) == 0;
-        }
-        default:
-            return false; // Unreachable.
+//            因为我们做了字符串驻留，所以可以直接比较地址，相同内容的字符串在vm里永远只有一个
+        case VAL_OBJ:
+            return AS_OBJ(a) == AS_OBJ(b);
     }
+    default:
+        return false; // Unreachable.
+}
+
 }
