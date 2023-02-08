@@ -58,9 +58,7 @@ bool valuesEqual(Value a, Value b) {
 //            因为我们做了字符串驻留，所以可以直接比较地址，相同内容的字符串在vm里永远只有一个
         case VAL_OBJ:
             return AS_OBJ(a) == AS_OBJ(b);
+        default:
+            return false; // Unreachable.
     }
-    default:
-        return false; // Unreachable.
-}
-
 }
